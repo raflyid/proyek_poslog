@@ -7,7 +7,7 @@ class dashboard extends CI_Controller
 		if($this->session->userdata('status_login') != "4V050oXlAMwyba8kkr5Q"){
 			redirect(base_url("index.php/login"));
 		}
-		else if ($this->session->userdata('jabatan') != "LV02")
+		else if ($this->session->userdata('level') != "LV02")
 		{
 			redirect(base_url("index.php/error404"));
 		}
