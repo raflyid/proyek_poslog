@@ -215,41 +215,37 @@
                                                     </div>
                                                     <div class="col-lg-9">
                                                         <div class="form-select-list">
-                                                            <select class="form-control custom-select-value"
-                                                                name="account">
-                                                                <option>--- Pilih Bidang Usaha ---</option>
-                                                                <option>Select 1</option>
-                                                                <option>Select 2</option>
-                                                                <option>Select 3</option>
+                                                            <select id="business_field" class="form-control custom-select-value"
+                                                                name="business_field">
                                                             </select>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div style="display: none" class="form-group-inner">
+                                            <div id="div_cat" class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-3">
                                                     </div>
                                                     <div class="col-lg-9">
                                                         <div class="form-select-list">
-                                                            <select class="form-control custom-select-value"
-                                                                name="account">
-                                                                <option>--- Pilih Detail Bidang Usaha ---</option>
-                                                                <option>Select 1</option>
-                                                                <option>Select 2</option>
-                                                                <option>Select 3</option>
+                                                            <select id="category_business_field" class="form-control custom-select-value"
+                                                                name="category_business_field">
                                                             </select>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div style="display: none" class="form-group-inner">
+                                            <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-3">
+                                                        <label class="login2 pull-right pull-right-pro">Klasifikasi<span style="color: red">*</span></label>
                                                     </div>
                                                     <div class="col-lg-9">
-                                                        <input placeholder="Bidang Usaha" type="text"
-                                                            class="form-control" />
+                                                        <div class="form-select-list">
+                                                            <select id="classification" class="form-control custom-select-value"
+                                                                name="classification">
+                                                            </select>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -265,6 +261,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            
                                             <div class="form-group-inner">
                                                 <div class="login-btn-inner">
                                                     <div class="row">
@@ -292,3 +289,4 @@
     </div>
 </div>
 <!-- Basic Form End-->
+

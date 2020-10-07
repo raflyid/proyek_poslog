@@ -120,7 +120,6 @@
                                         <li><a href="#">Upload Documents</a></li>
                                         <li><a href="#">Display Asset</a></li>
                                         <li><a href="#">Logout</a></li>
-
                                     </ul>
                                 </nav>
                             </div>

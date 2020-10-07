@@ -39,6 +39,77 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
+    $('#div_cat').hide();
+    // Classification
+    $.ajax({
+        url: "<?php echo base_url();?>index.php/vendor/registration/get_classification",
+        method: "GET",
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+            var html = '';
+            html = '<option value=\"' + '\">--- Pilih Klasifikasi ---</option>';
+            var i;
+            for (i = 0; i < data.length; i++) {
+                html += '<option value=\"' + data[i].class_id + '\">' + data[i].class_name +
+                    '</option>';
+            }
+            $('#classification').html(html);
+            console.log(data);
+        }
+    });
+
+    // Business Field
+    $.ajax({
+        url: "<?php echo base_url();?>index.php/vendor/registration/get_business_field",
+        method: "GET",
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+            var html = '';
+            html = '<option value=\"' + '\">--- Pilih Bidang Usaha ---</option>';
+            var i;
+            for (i = 0; i < data.length; i++) {
+                html += '<option value=\"' + data[i].business_field_id + '\">' + data[i]
+                    .business_field_name +
+                    '</option>';
+            }
+            $('#business_field').html(html);
+            console.log(data);
+        }
+    });
+
+    // Kategori Business Field
+    $('#business_field').change(function() {
+        var id = $(this).val();
+        $.ajax({
+            url: "<?php echo base_url();?>index.php/vendor/registration/get_category_business_field/"+id,
+            method: "GET",
+            async: false,
+            dataType: 'json',
+            success: function(data) {
+                var html = '';
+                html = '<option value=\"' + '\">--- Pilih Kategori Bidang Usaha ---</option>';
+                var i;
+                for (i = 0; i < data.length; i++) {
+                    html += '<option value=\"' + data[i].category_id + '\">' + data[i]
+                        .category_name +
+                        '</option>';
+                }
+                if(data.length != 0){
+                    $('#div_cat').show();
+                    $('#category_business_field').html(html);
+                    console.log(data);
+                }else{
+                    $('#div_cat').hide();
+                    $('#category_business_field').html(html);
+                    console.log(data);
+                }
+                
+            }
+        });
+    });
+
     // Provinsi
     $.ajax({
         url: "http://www.emsifa.com/api-wilayah-indonesia/api/provinces.json",
