@@ -61,8 +61,8 @@
             <nav id="sidebar">
                 <div class="sidebar-header">
                     <img src="<?php echo base_url() ?>assets/Template_Admin/tlogin/images/icons/pos_logistik.png" alt="" />
-                    <h3>Fachri Amien</h3>
-                    <p>Vendor</p>
+                    <h3><?php echo $this->session->userdata("name")?></h3>
+                    <p><?php echo $this->session->userdata("level_nama") ?></p>
                     <strong>PLI</strong>
                 </div>
                 <div class="left-custom-menu-adp-wrap">
@@ -80,7 +80,7 @@
                             <a href="#" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-balance-scale"></i> <span class="mini-dn">Display Asset</span></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-power-off"></i> <span class="mini-dn">Logout</span></a>
+                            <a href="<?php echo base_url() ?>index.php/login/logout" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-power-off"></i> <span class="mini-dn">Logout</span></a>
                         </li>
                     </ul>
                 </div>
