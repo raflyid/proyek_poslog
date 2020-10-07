@@ -33,15 +33,15 @@ class login extends CI_Controller
 
 			if($cek_level == "LV01")
 			{
-				redirect(base_url('index.php/superadmin/dashboard'));
+				redirect(base_url('index.php/vendor/dashboard'));
 			}
 			else if($cek_level == "LV02")
 			{
-				redirect(base_url('index.php/admin/dashboard'));
+				redirect(base_url('index.php/divpengadaan/dashboard'));
 			}
 			else if($cek_level == "LV03")
 			{
-				redirect(base_url('index.php/cleaningservice/dashboard'));
+				redirect(base_url('index.php/bod/dashboard'));
 			}
 		}
 		else
