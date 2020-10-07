@@ -1,3 +1,33 @@
+<!-- Breadcome start-->
+<div class="breadcome-area mg-b-30 small-dn">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcome-list shadow-reset">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="breadcome-heading">
+                                <form role="search" class="">
+                                    <input type="text" placeholder="Search..." class="form-control">
+                                    <a href=""><i class="fa fa-search"></i></a>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <ul class="breadcome-menu">
+                                <li><a href="#">Home</a> <span class="bread-slash">/</span>
+                                </li>
+                                <li><span class="bread-blod">Registration</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcome End-->
 <!-- Basic Form Start -->
 <div class="basic-form-area mg-b-15">
     <div class="container-fluid">
@@ -25,8 +55,8 @@
                                                             Perusahaan<span style="color: red">*</span></label>
                                                     </div>
                                                     <div class="col-lg-9">
-                                                        <input required placeholder="Nama Perusahaan" name="nama_perusahaan" type="text"
-                                                            class="form-control" />
+                                                        <input required placeholder="Nama Perusahaan"
+                                                            name="nama_perusahaan" type="text" class="form-control" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -37,7 +67,9 @@
                                                                 style="color: red">*</span></label>
                                                     </div>
                                                     <div class="col-lg-9">
-                                                        <input required name="alamat_lengkap" placeholder="Jalan, RT/RW, Blok" type="text" class="form-control" />
+                                                        <input required name="alamat_lengkap"
+                                                            placeholder="Jalan, RT/RW, Blok" type="text"
+                                                            class="form-control" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -47,7 +79,8 @@
                                                     </div>
                                                     <div class="col-lg-9">
                                                         <div class="form-select-list">
-                                                            <select required id="provinsi" class="form-control custom-select-value"
+                                                            <select required id="provinsi"
+                                                                class="form-control custom-select-value"
                                                                 name="provinsi">
                                                             </select>
                                                         </div>
@@ -60,8 +93,8 @@
                                                     </div>
                                                     <div class="col-lg-9">
                                                         <div class="form-select-list">
-                                                            <select required id="kota" class="form-control custom-select-value"
-                                                                name="kota">
+                                                            <select required id="kota"
+                                                                class="form-control custom-select-value" name="kota">
                                                                 <option>--- Pilih Kabupaten/Kota ---</option>
                                                             </select>
                                                         </div>
@@ -74,7 +107,8 @@
                                                     </div>
                                                     <div class="col-lg-9">
                                                         <div class="form-select-list">
-                                                            <select required id="kecamatan" class="form-control custom-select-value"
+                                                            <select required id="kecamatan"
+                                                                class="form-control custom-select-value"
                                                                 name="kecamatan">
                                                                 <option>--- Pilih Kecamatan ---</option>
                                                             </select>
@@ -88,7 +122,8 @@
                                                     </div>
                                                     <div class="col-lg-9">
                                                         <div class="form-select-list">
-                                                            <select required id="kelurahan" class="form-control custom-select-value"
+                                                            <select required id="kelurahan"
+                                                                class="form-control custom-select-value"
                                                                 name="kelurahan">
                                                                 <option>--- Pilih Kelurahan ---</option>
                                                             </select>
@@ -101,8 +136,8 @@
                                                     <div class="col-lg-3">
                                                     </div>
                                                     <div class="col-lg-9">
-                                                        <input id="kode_pos" name="kode_pos" required placeholder="Kode Pos" type="text"
-                                                            class="form-control" />
+                                                        <input id="kode_pos" name="kode_pos" required
+                                                            placeholder="Kode Pos" type="text" class="form-control" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -113,7 +148,8 @@
                                                             Telepon<span style="color: red">*</span></label>
                                                     </div>
                                                     <div class="col-lg-9">
-                                                        <input id="nomor_telepon" name="nomor_telepon" required placeholder="Nomor Telepon" type="text"
+                                                        <input id="nomor_telepon" name="nomor_telepon" required
+                                                            placeholder="Nomor Telepon" type="text"
                                                             class="form-control" />
                                                     </div>
                                                 </div>
@@ -123,7 +159,8 @@
                                                     <div class="col-lg-3">
                                                     </div>
                                                     <div class="col-lg-9">
-                                                        <input id="fax" name="fax" required placeholder="Fax" type="text" class="form-control" />
+                                                        <input id="fax" name="fax" required placeholder="Fax"
+                                                            type="text" class="form-control" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -134,8 +171,8 @@
                                                             (PIC)<span style="color: red">*</span></label>
                                                     </div>
                                                     <div class="col-lg-9">
-                                                        <input id="pic_nama" name="pic_nama" required placeholder="Nama PIC" type="text"
-                                                            class="form-control" />
+                                                        <input id="pic_nama" name="pic_nama" required
+                                                            placeholder="Nama PIC" type="text" class="form-control" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -144,8 +181,8 @@
                                                     <div class="col-lg-3">
                                                     </div>
                                                     <div class="col-lg-9">
-                                                        <input id="pic_nohp" name="pic_nohp" required placeholder="No HP (WA)" type="text"
-                                                            class="form-control" />
+                                                        <input id="pic_nohp" name="pic_nohp" required
+                                                            placeholder="No HP (WA)" type="text" class="form-control" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -154,7 +191,7 @@
                                                     <div class="col-lg-3">
                                                     </div>
                                                     <div class="col-lg-9">
-                                                        <input placeholder="Email" type="text" class="form-control" />
+                                                        <input id="email" name="email" required placeholder="Email" type="email" class="form-control" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -237,7 +274,7 @@
                                                                 <button class="btn btn-white"
                                                                     type="submit">Cancel</button>
                                                                 <button class="btn btn-sm btn-primary login-submit-cs"
-                                                                    type="submit">Save Change</button>
+                                                                    type="submit">Save</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -255,4 +292,3 @@
     </div>
 </div>
 <!-- Basic Form End-->
-
