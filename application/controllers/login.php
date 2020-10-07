@@ -24,7 +24,7 @@ class login extends CI_Controller
 			$data_session = array(
 				'nama' => $name,
 				'username' => $username,
-				'level'=> $level_id,
+				'level'=> $cek_level,
 				'level_nama' => $level_nama,
 				'status_login' => "4V050oXlAMwyba8kkr5Q"
 			);
