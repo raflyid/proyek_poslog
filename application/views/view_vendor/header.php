@@ -49,6 +49,13 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="<?php echo base_url() ?>assets/Template_Admin/base/js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
 </head>
 
 <body class="materialdesign">
@@ -68,16 +75,16 @@
                 <div class="left-custom-menu-adp-wrap">
                     <ul class="nav navbar-nav left-sidebar-menu-pro">
                         <li class="nav-item">
-                            <a href="<?php echo base_url() ?>index.php/vendor/dashboard/index" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-home"></i> <span class="mini-dn">Dashboard</span></a>
+                            <a href="<?php echo base_url() ?>index.php/vendor/dashboard" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-home"></i> <span class="mini-dn">Dashboard</span></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-edit"></i> <span class="mini-dn">Registration</span></a>
+                            <a href="<?php echo base_url() ?>index.php/vendor/registration" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-edit"></i> <span class="mini-dn">Registration</span></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-upload"></i> <span class="mini-dn">Upload Documents</span></a>
+                            <a href="<?php echo base_url() ?>index.php/vendor/upload_documents" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-upload"></i> <span class="mini-dn">Upload Documents</span></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-balance-scale"></i> <span class="mini-dn">Display Asset</span></a>
+                            <a href="<?php echo base_url() ?>index.php/vendor/display_asset" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-balance-scale"></i> <span class="mini-dn">Display Asset</span></a>
                         </li>
                         <li class="nav-item">
                             <a href="<?php echo base_url() ?>index.php/login/logout" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-power-off"></i> <span class="mini-dn">Logout</span></a>
@@ -106,36 +113,7 @@
                 </div>
             </div>
             <!-- Header top area end-->
-            <!-- Breadcome start-->
-            <div class="breadcome-area mg-b-30 small-dn">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="breadcome-list shadow-reset">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="breadcome-heading">
-                                            <form role="search" class="">
-												<input type="text" placeholder="Search..." class="form-control">
-												<a href=""><i class="fa fa-search"></i></a>
-											</form>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <ul class="breadcome-menu">
-                                            <li><a href="#">Home</a> <span class="bread-slash">/</span>
-                                            </li>
-                                            <li><span class="bread-blod">Dashboard</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Breadcome End-->
+            
             <!-- Mobile Menu start -->
             <div class="mobile-menu-area">
                 <div class="container">
@@ -144,12 +122,11 @@
                             <div class="mobile-menu">
                                 <nav id="dropdown">
                                     <ul class="mobile-menu-nav">
-                                        <li><a href="#">Dashboard</a></li>
-                                        <li><a href="#">Registration</a></li>
-                                        <li><a href="#">Upload Documents</a></li>
-                                        <li><a href="#">Display Asset</a></li>
-                                        <li><a href="#">Logout</a></li>
-
+                                        <li><a href="<?php echo base_url() ?>index.php/vendor/dashboard">Dashboard</a></li>
+                                        <li><a href="<?php echo base_url() ?>index.php/vendor/registration">Registration</a></li>
+                                        <li><a href="<?php echo base_url() ?>index.php/vendor/upload_documents">Upload Documents</a></li>
+                                        <li><a href="<?php echo base_url() ?>index.php/vendor/display_asset">Display Asset</a></li>
+                                        <li><a href="<?php echo base_url() ?>index.php/login/logout">Logout</a></li>
                                     </ul>
                                 </nav>
                             </div>

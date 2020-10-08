@@ -39,6 +39,78 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
+    $('#div_cat').hide();
+    // Classification
+    $.ajax({
+        url: "<?php echo base_url();?>index.php/vendor/registration/get_classification",
+        method: "GET",
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+            var html = '';
+            html = '<option value=\"' + '\">--- Pilih Klasifikasi ---</option>';
+            var i;
+            for (i = 0; i < data.length; i++) {
+                html += '<option value=\"' + data[i].class_id + '\">' + data[i].class_name +
+                    '</option>';
+            }
+            $('#classification').html(html);
+            console.log(data);
+        }
+    });
+
+    // Business Field
+    $.ajax({
+        url: "<?php echo base_url();?>index.php/vendor/registration/get_business_field",
+        method: "GET",
+        async: false,
+        dataType: 'json',
+        success: function(data) {
+            var html = '';
+            html = '<option value=\"' + '\">--- Pilih Bidang Usaha ---</option>';
+            var i;
+            for (i = 0; i < data.length; i++) {
+                html += '<option value=\"' + data[i].business_field_id + '\">' + data[i]
+                    .business_field_name +
+                    '</option>';
+            }
+            $('#business_field').html(html);
+            console.log(data);
+        }
+    });
+
+    // Kategori Business Field
+    $('#business_field').change(function() {
+        var id = $(this).val();
+        $.ajax({
+            url: "<?php echo base_url();?>index.php/vendor/registration/get_category_business_field/"+id,
+            method: "GET",
+            async: false,
+            dataType: 'json',
+            success: function(data) {
+                var html = '';
+                html = '<option value=\"' + '\">--- Pilih Kategori Bidang Usaha ---</option>';
+                var i;
+                for (i = 0; i < data.length; i++) {
+                    html += '<option value=\"' + data[i].category_id + '\">' + data[i]
+                        .category_name +
+                        '</option>';
+                }
+                if(data.length != 0){
+                    $('#div_cat').show();
+                    $('#category_business_field').html(html);
+                    console.log(data);
+                }else{
+                    $('#div_cat').hide();
+                    html = '<option value=\"' + '\">--- Pilih Kategori Bidang Usaha ---</option>';
+                    $('#category_business_field').html(html);
+                    console.log(data);
+                }
+                
+            }
+        });
+    });
+
     // Provinsi
     $.ajax({
         url: "http://www.emsifa.com/api-wilayah-indonesia/api/provinces.json",
@@ -47,85 +119,136 @@ $(document).ready(function() {
         dataType: 'json',
         success: function(data) {
             var html = '';
-            html = '<option value=\"' + '\">--- Pilih Provinsi ---</option>';
+            html = '<option myid=\"' + '\" value=\"' + '\">--- Pilih Provinsi ---</option>';
             var i;
             for (i = 0; i < data.length; i++) {
-                html += '<option value=\"' + data[i].id + '\">' + data[i].name +
+                html += '<option myid=\"' + data[i].id + '\" value=\"' + data[i].name + '\">' + data[i].name +
                     '</option>';
             }
             $('#provinsi').html(html);
             console.log(data);
+            var htmlKota = '<option myid=\"' + '\" value=\"' + '\">--- Pilih Kabupaten/Kota ---</option>';
+            var htmlKecamatan = '<option myid=\"' + '\" value=\"' +
+                '\">--- Pilih Kecamatan ---</option>';
+            var htmlKelurahan = '<option myid=\"' + '\" value=\"' +
+                '\">--- Pilih Kelurahan ---</option>';
+            $('#kota').html(htmlKota);
+            $('#kecamatan').html(htmlKecamatan);
+            $('#kelurahan').html(htmlKelurahan);
         }
     });
 
     //Kabupaten/kota
     $('#provinsi').change(function() {
-        var id = $(this).val();
-        $.ajax({
-            url: "http://www.emsifa.com/api-wilayah-indonesia/api/regencies/" + id + ".json",
-            method: "GET",
-            async: false,
-            dataType: 'json',
-            success: function(data) {
-                var html = '';
+        var id = $('option:selected', this).attr('myid');
+        if (id != '') {
+            $.ajax({
+                url: "http://www.emsifa.com/api-wilayah-indonesia/api/regencies/" + id +
+                    ".json",
+                method: "GET",
+                async: false,
+                dataType: 'json',
+                success: function(data) {
+                    var html = '';
+                    var htmlKecamatan = '';
+                    var htmlKelurahan = '';
+                    html = '<option myid=\"' + '\" value=\"' + '\">--- Pilih Kabupaten/Kota ---</option>';
+                    htmlKecamatan = '<option value=\"' +
+                        '\">--- Pilih Kecamatan ---</option>';
+                    htmlKelurahan = '<option myid=\"' + '\" value=\"' +
+                        '\">--- Pilih Kelurahan ---</option>';
+                    var i;
+                    for (i = 0; i < data.length; i++) {
+                        html += '<option myid=\"' + data[i].id + '\" value=\"' + data[i].name + '\">' + data[i]
+                            .name + '</option>';
+                    }
+                    $('#kota').html(html);
+                    $('#kecamatan').html(htmlKecamatan);
+                    $('#kelurahan').html(htmlKelurahan);
+                }
+            });
+        } else {
+            var htmlKota = '';
+            var htmlKecamatan = '';
+            var htmlKelurahan = '';
+            htmlKota = '<option myid=\"' + '\" value=\"' + '\">--- Pilih Kabupaten/Kota ---</option>';
+            htmlKecamatan = '<option myid=\"' + '\" value=\"' +
+                '\">--- Pilih Kecamatan ---</option>';
+            htmlKelurahan = '<option myid=\"' + '\" value=\"' +
+                '\">--- Pilih Kelurahan ---</option>';
+            $('#kota').html(htmlKota);
+            $('#kecamatan').html(htmlKecamatan);
+            $('#kelurahan').html(htmlKelurahan);
+        }
+
+        //Kecamatan
+        $('#kota').change(function() {
+            var id = $('option:selected', this).attr('myid');
+            if (id != '') {
+                $.ajax({
+                    url: "http://www.emsifa.com/api-wilayah-indonesia/api/districts/" +
+                        id +
+                        ".json",
+                    method: "GET",
+                    async: false,
+                    dataType: 'json',
+                    success: function(data) {
+                        var html = '';
+                        var i;
+                        html = '<option myid=\"' + '\" value=\"' +
+                            '\">--- Pilih Kecamatan ---</option>';
+                        htmlKelurahan = '<option myid=\"' + '\" value=\"' +
+                            '\">--- Pilih Kelurahan ---</option>';
+                        for (i = 0; i < data.length; i++) {
+                            html += '<option myid=\"' + data[i].id + '\" value=\"' + data[i].name + '\">' + data[
+                                    i]
+                                .name + '</option>';
+                        }
+                        $('#kecamatan').html(html);
+                        $('#kelurahan').html(htmlKelurahan);
+                    }
+                });
+            } else {
                 var htmlKecamatan = '';
                 var htmlKelurahan = '';
-                html = '<option value=\"' + '\">--- Pilih Kabupaten/Kota ---</option>';
-                htmlKecamatan = '<option value=\"' + '\">--- Pilih Kecamatan ---</option>';
-                htmlKelurahan = '<option value=\"' + '\">--- Pilih Kelurahan ---</option>';
-                var i;
-                for (i = 0; i < data.length; i++) {
-                    html += '<option value=\"' + data[i].id + '\">' + data[i]
-                        .name + '</option>';
-                }
-                $('#kota').html(html);
+                htmlKecamatan = '<option myid=\"' + '\" value=\"' +
+                    '\">--- Pilih Kecamatan ---</option>';
+                htmlKelurahan = '<option myid=\"' + '\" value=\"' +
+                    '\">--- Pilih Kelurahan ---</option>';
                 $('#kecamatan').html(htmlKecamatan);
                 $('#kelurahan').html(htmlKelurahan);
             }
         });
-    });
 
-
-    //Kecamatan
-    $('#kota').change(function() {
-        var id = $(this).val();
-        $.ajax({
-            url: "http://www.emsifa.com/api-wilayah-indonesia/api/districts/" + id + ".json",
-            method: "GET",
-            async: false,
-            dataType: 'json',
-            success: function(data) {
-                var html = '';
-                var i;
-                html = '<option value=\"' + '\">--- Pilih Kecamatan ---</option>';
-                htmlKelurahan = '<option value=\"' + '\">--- Pilih Kelurahan ---</option>';
-                for (i = 0; i < data.length; i++) {
-                    html += '<option value=\"' + data[i].id + '\">' + data[i]
-                        .name + '</option>';
-                }
-                $('#kecamatan').html(html);
+        //Kelurahan
+        $('#kecamatan').change(function() {
+            var id = $('option:selected', this).attr('myid');
+            if (id != '') {
+                $.ajax({
+                    url: "http://www.emsifa.com/api-wilayah-indonesia/api/villages/" +
+                        id +
+                        ".json",
+                    method: "GET",
+                    async: false,
+                    dataType: 'json',
+                    success: function(data) {
+                        var html = '';
+                        var i;
+                        html = '<option myid=\"' + '\" value=\"' +
+                            '\">--- Pilih Kelurahan ---</option>';
+                        for (i = 0; i < data.length; i++) {
+                            html += '<option myid=\"' + data[i].id + '\" value=\"' + data[i].name + '\">' + data[
+                                    i]
+                                .name + '</option>';
+                        }
+                        $('#kelurahan').html(html);
+                    }
+                });
+            } else {
+                var htmlKelurahan = '';
+                htmlKelurahan = '<option myid=\"' + '\" value=\"' +
+                    '\">--- Pilih Kelurahan ---</option>';
                 $('#kelurahan').html(htmlKelurahan);
-            }
-        });
-    });
-
-    //Kecamatan
-    $('#kecamatan').change(function() {
-        var id = $(this).val();
-        $.ajax({
-            url: "http://www.emsifa.com/api-wilayah-indonesia/api/villages/" + id + ".json",
-            method: "GET",
-            async: false,
-            dataType: 'json',
-            success: function(data) {
-                var html = '';
-                var i;
-                html = '<option value=\"' + '\">--- Pilih Kelurahan ---</option>';
-                for (i = 0; i < data.length; i++) {
-                    html += '<option value=\"' + data[i].id + '\">' + data[i]
-                        .name + '</option>';
-                }
-                $('#kelurahan').html(html);
             }
         });
     });
