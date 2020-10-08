@@ -7,7 +7,7 @@ class registration extends CI_Controller
 		if($this->session->userdata('status_login') != "4V050oXlAMwyba8kkr5Q"){
 			redirect(base_url("index.php/login"));
 		}
-		else if ($this->session->userdata('level') != "LV01")
+		else if ($this->session->userdata('level') != "1")
 		{
 			redirect(base_url("index.php/error404"));
 		}
