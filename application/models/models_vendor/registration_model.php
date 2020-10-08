@@ -82,6 +82,17 @@ class registration_model extends CI_Model
         $user_id = $this->session->userdata("user_id");
 		$query = $this->db->query("SELECT * FROM vendor WHERE user_id = '$user_id'");
 		return $query->num_rows();
+    }
+    
+    function get_registration_data_vendor(){
+        $user_id = $this->session->userdata("user_id");
+		return $this->db->query("SELECT * FROM vendor WHERE user_id = '$user_id'")->row();
+    }
+    
+    function get_registration_data_pic(){
+        $user_id = $this->session->userdata("user_id");
+        $vendor_id = $this->db->query("SELECT * FROM vendor WHERE user_id = '$user_id'")->row()->vendor_id;
+        return $this->db->query("SELECT * FROM pic WHERE vendor_id = '$vendor_id'")->row();
 	}
 }
 ?>
