@@ -2,6 +2,16 @@
 
 class registration extends CI_Controller
 {
+        function __construct(){
+		parent::__construct();
+		if($this->session->userdata('status_login') != "4V050oXlAMwyba8kkr5Q"){
+			redirect(base_url("index.php/login"));
+		}
+		else if ($this->session->userdata('level') != "LV01")
+		{
+			redirect(base_url("index.php/error404"));
+		}
+	}
 
 	function index(){
                 $this->output->set_content_type("Access-Control-Allow-Origin: *")->set_content_type("Access-Control-Allow-Methods: POST, GET")->set_content_type("Access-Control-Allow-Headers: Authorization, Origin, X-Requested-With, Content-Type, Accept");

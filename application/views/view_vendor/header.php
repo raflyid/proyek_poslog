@@ -61,23 +61,23 @@
             <nav id="sidebar">
                 <div class="sidebar-header">
                     <img src="<?php echo base_url() ?>assets/Template_Admin/tlogin/images/icons/pos_logistik.png" alt="" />
-                    <h3><?php echo $this->session->userdata("name")?></h3>
+                    <h3><?php echo $this->session->userdata("nama")?></h3>
                     <p><?php echo $this->session->userdata("level_nama") ?></p>
                     <strong>PLI</strong>
                 </div>
                 <div class="left-custom-menu-adp-wrap">
                     <ul class="nav navbar-nav left-sidebar-menu-pro">
                         <li class="nav-item">
-                            <a href="#" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-home"></i> <span class="mini-dn">Dashboard</span></a>
+                            <a href="<?php echo base_url() ?>index.php/vendor/dashboard" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-home"></i> <span class="mini-dn">Dashboard</span></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-edit"></i> <span class="mini-dn">Registration</span></a>
+                            <a href="<?php echo base_url() ?>index.php/vendor/registration" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-edit"></i> <span class="mini-dn">Registration</span></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-upload"></i> <span class="mini-dn">Upload Documents</span></a>
+                            <a href="<?php echo base_url() ?>index.php/vendor/upload_documents" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-upload"></i> <span class="mini-dn">Upload Documents</span></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-balance-scale"></i> <span class="mini-dn">Display Asset</span></a>
+                            <a href="<?php echo base_url() ?>index.php/vendor/display_asset" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-balance-scale"></i> <span class="mini-dn">Display Asset</span></a>
                         </li>
                         <li class="nav-item">
                             <a href="<?php echo base_url() ?>index.php/login/logout" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-power-off"></i> <span class="mini-dn">Logout</span></a>
@@ -115,11 +115,11 @@
                             <div class="mobile-menu">
                                 <nav id="dropdown">
                                     <ul class="mobile-menu-nav">
-                                        <li><a href="#">Dashboard</a></li>
-                                        <li><a href="#">Registration</a></li>
-                                        <li><a href="#">Upload Documents</a></li>
-                                        <li><a href="#">Display Asset</a></li>
-                                        <li><a href="#">Logout</a></li>
+                                        <li><a href="<?php echo base_url() ?>index.php/vendor/dashboard">Dashboard</a></li>
+                                        <li><a href="<?php echo base_url() ?>index.php/vendor/registration">Registration</a></li>
+                                        <li><a href="<?php echo base_url() ?>index.php/vendor/upload_documents">Upload Documents</a></li>
+                                        <li><a href="<?php echo base_url() ?>index.php/vendor/display_asset">Display Asset</a></li>
+                                        <li><a href="<?php echo base_url() ?>index.php/login/logout">Logout</a></li>
                                     </ul>
                                 </nav>
                             </div>

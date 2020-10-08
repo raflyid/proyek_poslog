@@ -56,7 +56,8 @@
                                                     </div>
                                                     <div class="col-lg-9">
                                                         <input required placeholder="Nama Perusahaan"
-                                                            name="nama_perusahaan" type="text" class="form-control" />
+                                                            name="nama_perusahaan"
+                                                            id="nama_perusahaan" type="text" class="form-control" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -67,7 +68,7 @@
                                                                 style="color: red">*</span></label>
                                                     </div>
                                                     <div class="col-lg-9">
-                                                        <input required name="alamat_lengkap"
+                                                        <input required id="alamat_lengkap" name="alamat_lengkap"
                                                             placeholder="Jalan, RT/RW, Blok" type="text"
                                                             class="form-control" />
                                                     </div>
@@ -145,10 +146,10 @@
                                                 <div class="row">
                                                     <div class="col-lg-3">
                                                         <label class="login2 pull-right pull-right-pro">Nomor
-                                                            Telepon<span style="color: red">*</span></label>
+                                                            Telepon (Optional)</label>
                                                     </div>
                                                     <div class="col-lg-9">
-                                                        <input id="nomor_telepon" name="nomor_telepon" required
+                                                        <input id="nomor_telepon" name="nomor_telepon"
                                                             placeholder="Nomor Telepon" type="text"
                                                             class="form-control" />
                                                     </div>
@@ -159,7 +160,7 @@
                                                     <div class="col-lg-3">
                                                     </div>
                                                     <div class="col-lg-9">
-                                                        <input id="fax" name="fax" required placeholder="Fax"
+                                                        <input id="fax" name="fax" placeholder="Fax"
                                                             type="text" class="form-control" />
                                                     </div>
                                                 </div>
@@ -256,7 +257,7 @@
                                                             Perusahaan<span style="color: red">*</span></label>
                                                     </div>
                                                     <div class="col-lg-9">
-                                                        <textarea placeholder="Tuliskan Deskripsi Umum Perusahaan"
+                                                        <textarea id="deskripsi_umum" name="deskripsi_umum" placeholder="Tuliskan Deskripsi Umum Perusahaan"
                                                             type="text" class="form-control"></textarea>
                                                     </div>
                                                 </div>
@@ -268,10 +269,8 @@
                                                         <div class="col-lg-3"></div>
                                                         <div class="col-lg-9">
                                                             <div class="login-horizental cancel-wp pull-left">
-                                                                <button class="btn btn-white"
-                                                                    type="submit">Cancel</button>
                                                                 <button class="btn btn-sm btn-primary login-submit-cs"
-                                                                    type="submit">Save</button>
+                                                                    type="submit">Submit</button>
                                                             </div>
                                                         </div>
                                                     </div>
