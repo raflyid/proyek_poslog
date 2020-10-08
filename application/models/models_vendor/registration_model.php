@@ -17,8 +17,7 @@ class registration_model extends CI_Model
 		return $hasil->result();
 	}
 
-    function submit_registration()
-	{
+    function submit_registration(){
         date_default_timezone_set("Asia/Jakarta");
         $vendor_id = "V".date("YmdHis");
         $pic_id = "PIC".date("YmdHis");
@@ -65,8 +64,6 @@ class registration_model extends CI_Model
         'reg_date'=>$reg_date,
         'user_id'=>$user_id,
         'vendor_status'=>'1');
-
-        $this->db->insert('vendor', $dataVendor);
         
         $dataPIC = array('pic_id'=>$pic_id,
         'vendor_id'=>$vendor_id,
@@ -77,7 +74,14 @@ class registration_model extends CI_Model
         'pic_phone'=>$pic_nohp,
         'pic_status'=>'1');
 
+        $this->db->insert('vendor', $dataVendor);
 		$this->db->insert('pic', $dataPIC);
+    }
+    
+    function get_validate_registed_or_not(){
+        $user_id = $this->session->userdata("user_id");
+		$query = $this->db->query("SELECT * FROM vendor WHERE user_id = '$user_id'");
+		return $query->num_rows();
 	}
 }
 ?>
