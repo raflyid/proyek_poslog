@@ -61,7 +61,7 @@
             <nav id="sidebar">
                 <div class="sidebar-header">
                     <img src="<?php echo base_url() ?>assets/Template_Admin/tlogin/images/icons/pos_logistik.png" alt="" />
-                    <h3><?php echo $this->session->userdata("name")?></h3>
+                    <h3><?php echo $this->session->userdata("nama")?></h3>
                     <p><?php echo $this->session->userdata("level_nama") ?></p>
                     <strong>PLI</strong>
                 </div>

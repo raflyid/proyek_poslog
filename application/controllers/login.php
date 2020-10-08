@@ -13,6 +13,7 @@ class login extends CI_Controller
 		$cek = $this->login_model->cek_login()->num_rows();
 
 		if($cek > 0){
+			$user_id = $this->login_model->cek_login()->row()->user_id;
 			$fullname = $this->login_model->cek_login()->row()->fullname;
 			$username = $this->login_model->cek_login()->row()->username;
 			$cek_level = $this->login_model->cek_login()->row()->level_id;
@@ -22,6 +23,7 @@ class login extends CI_Controller
 			$name = $nickname[0]." ".$nickname[1];
 
 			$data_session = array(
+				'user_id' => $user_id,
 				'nama' => $name,
 				'username' => $username,
 				'level'=> $cek_level,
@@ -31,15 +33,15 @@ class login extends CI_Controller
 
 			$this->session->set_userdata($data_session);
 
-			if($cek_level == "LV01")
+			if($cek_level == "1")
 			{
 				redirect(base_url('index.php/vendor/dashboard'));
 			}
-			else if($cek_level == "LV02")
+			else if($cek_level == "2")
 			{
 				redirect(base_url('index.php/divpengadaan/dashboard'));
 			}
-			else if($cek_level == "LV03")
+			else if($cek_level == "3")
 			{
 				redirect(base_url('index.php/bod/dashboard'));
 			}
