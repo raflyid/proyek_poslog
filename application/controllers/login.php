@@ -13,6 +13,7 @@ class login extends CI_Controller
 		$cek = $this->login_model->cek_login()->num_rows();
 
 		if($cek > 0){
+			$user_id = $this->login_model->cek_login()->row()->user_id;
 			$fullname = $this->login_model->cek_login()->row()->fullname;
 			$username = $this->login_model->cek_login()->row()->username;
 			$cek_level = $this->login_model->cek_login()->row()->level_id;
@@ -22,6 +23,7 @@ class login extends CI_Controller
 			$name = $nickname[0]." ".$nickname[1];
 
 			$data_session = array(
+				'user_id' => $user_id,
 				'nama' => $name,
 				'username' => $username,
 				'level'=> $cek_level,

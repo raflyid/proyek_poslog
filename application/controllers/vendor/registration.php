@@ -15,6 +15,16 @@ class registration extends CI_Controller
 
 	function index(){
                 $this->output->set_content_type("Access-Control-Allow-Origin: *")->set_content_type("Access-Control-Allow-Methods: POST, GET")->set_content_type("Access-Control-Allow-Headers: Authorization, Origin, X-Requested-With, Content-Type, Accept");
+
+                $this->load->model('models_vendor/registration_model');
+
+		// JIKA ADA SUBMIT PADA FORM
+		if($this->input->post('submit'))
+		{
+			$this->registration_model->submit_registration();
+			$this->session->set_flashdata('success','Action Completed');
+		}
+
                 $this->load->view('view_vendor/header');
                 $this->load->view('view_vendor/registration');
                 $this->load->view('view_vendor/footer');
@@ -39,8 +49,8 @@ class registration extends CI_Controller
 		$this->load->model('models_vendor/registration_model');
 		$data=$this->registration_model->get_category_business_field($id);
 		echo json_encode($data);
-	}
-
+        }
+        
 }
 
 

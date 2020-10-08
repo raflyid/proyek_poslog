@@ -102,6 +102,7 @@ $(document).ready(function() {
                     console.log(data);
                 }else{
                     $('#div_cat').hide();
+                    html = '<option value=\"' + '\">--- Pilih Kategori Bidang Usaha ---</option>';
                     $('#category_business_field').html(html);
                     console.log(data);
                 }
@@ -118,20 +119,28 @@ $(document).ready(function() {
         dataType: 'json',
         success: function(data) {
             var html = '';
-            html = '<option value=\"' + '\">--- Pilih Provinsi ---</option>';
+            html = '<option myid=\"' + '\" value=\"' + '\">--- Pilih Provinsi ---</option>';
             var i;
             for (i = 0; i < data.length; i++) {
-                html += '<option value=\"' + data[i].id + '\">' + data[i].name +
+                html += '<option myid=\"' + data[i].id + '\" value=\"' + data[i].name + '\">' + data[i].name +
                     '</option>';
             }
             $('#provinsi').html(html);
             console.log(data);
+            var htmlKota = '<option myid=\"' + '\" value=\"' + '\">--- Pilih Kabupaten/Kota ---</option>';
+            var htmlKecamatan = '<option myid=\"' + '\" value=\"' +
+                '\">--- Pilih Kecamatan ---</option>';
+            var htmlKelurahan = '<option myid=\"' + '\" value=\"' +
+                '\">--- Pilih Kelurahan ---</option>';
+            $('#kota').html(htmlKota);
+            $('#kecamatan').html(htmlKecamatan);
+            $('#kelurahan').html(htmlKelurahan);
         }
     });
 
     //Kabupaten/kota
     $('#provinsi').change(function() {
-        var id = $(this).val();
+        var id = $('option:selected', this).attr('myid');
         if (id != '') {
             $.ajax({
                 url: "http://www.emsifa.com/api-wilayah-indonesia/api/regencies/" + id +
@@ -143,14 +152,14 @@ $(document).ready(function() {
                     var html = '';
                     var htmlKecamatan = '';
                     var htmlKelurahan = '';
-                    html = '<option value=\"' + '\">--- Pilih Kabupaten/Kota ---</option>';
+                    html = '<option myid=\"' + '\" value=\"' + '\">--- Pilih Kabupaten/Kota ---</option>';
                     htmlKecamatan = '<option value=\"' +
                         '\">--- Pilih Kecamatan ---</option>';
-                    htmlKelurahan = '<option value=\"' +
+                    htmlKelurahan = '<option myid=\"' + '\" value=\"' +
                         '\">--- Pilih Kelurahan ---</option>';
                     var i;
                     for (i = 0; i < data.length; i++) {
-                        html += '<option value=\"' + data[i].id + '\">' + data[i]
+                        html += '<option myid=\"' + data[i].id + '\" value=\"' + data[i].name + '\">' + data[i]
                             .name + '</option>';
                     }
                     $('#kota').html(html);
@@ -162,10 +171,10 @@ $(document).ready(function() {
             var htmlKota = '';
             var htmlKecamatan = '';
             var htmlKelurahan = '';
-            htmlKota = '<option value=\"' + '\">--- Pilih Kabupaten/Kota ---</option>';
-            htmlKecamatan = '<option value=\"' +
+            htmlKota = '<option myid=\"' + '\" value=\"' + '\">--- Pilih Kabupaten/Kota ---</option>';
+            htmlKecamatan = '<option myid=\"' + '\" value=\"' +
                 '\">--- Pilih Kecamatan ---</option>';
-            htmlKelurahan = '<option value=\"' +
+            htmlKelurahan = '<option myid=\"' + '\" value=\"' +
                 '\">--- Pilih Kelurahan ---</option>';
             $('#kota').html(htmlKota);
             $('#kecamatan').html(htmlKecamatan);
@@ -174,7 +183,7 @@ $(document).ready(function() {
 
         //Kecamatan
         $('#kota').change(function() {
-            var id = $(this).val();
+            var id = $('option:selected', this).attr('myid');
             if (id != '') {
                 $.ajax({
                     url: "http://www.emsifa.com/api-wilayah-indonesia/api/districts/" +
@@ -186,12 +195,12 @@ $(document).ready(function() {
                     success: function(data) {
                         var html = '';
                         var i;
-                        html = '<option value=\"' +
+                        html = '<option myid=\"' + '\" value=\"' +
                             '\">--- Pilih Kecamatan ---</option>';
-                        htmlKelurahan = '<option value=\"' +
+                        htmlKelurahan = '<option myid=\"' + '\" value=\"' +
                             '\">--- Pilih Kelurahan ---</option>';
                         for (i = 0; i < data.length; i++) {
-                            html += '<option value=\"' + data[i].id + '\">' + data[
+                            html += '<option myid=\"' + data[i].id + '\" value=\"' + data[i].name + '\">' + data[
                                     i]
                                 .name + '</option>';
                         }
@@ -202,18 +211,18 @@ $(document).ready(function() {
             } else {
                 var htmlKecamatan = '';
                 var htmlKelurahan = '';
-                htmlKecamatan = '<option value=\"' +
+                htmlKecamatan = '<option myid=\"' + '\" value=\"' +
                     '\">--- Pilih Kecamatan ---</option>';
-                htmlKelurahan = '<option value=\"' +
+                htmlKelurahan = '<option myid=\"' + '\" value=\"' +
                     '\">--- Pilih Kelurahan ---</option>';
                 $('#kecamatan').html(htmlKecamatan);
                 $('#kelurahan').html(htmlKelurahan);
             }
         });
 
-        //Kecamatan
+        //Kelurahan
         $('#kecamatan').change(function() {
-            var id = $(this).val();
+            var id = $('option:selected', this).attr('myid');
             if (id != '') {
                 $.ajax({
                     url: "http://www.emsifa.com/api-wilayah-indonesia/api/villages/" +
@@ -225,10 +234,10 @@ $(document).ready(function() {
                     success: function(data) {
                         var html = '';
                         var i;
-                        html = '<option value=\"' +
+                        html = '<option myid=\"' + '\" value=\"' +
                             '\">--- Pilih Kelurahan ---</option>';
                         for (i = 0; i < data.length; i++) {
-                            html += '<option value=\"' + data[i].id + '\">' + data[
+                            html += '<option myid=\"' + data[i].id + '\" value=\"' + data[i].name + '\">' + data[
                                     i]
                                 .name + '</option>';
                         }
@@ -237,7 +246,7 @@ $(document).ready(function() {
                 });
             } else {
                 var htmlKelurahan = '';
-                htmlKelurahan = '<option value=\"' +
+                htmlKelurahan = '<option myid=\"' + '\" value=\"' +
                     '\">--- Pilih Kelurahan ---</option>';
                 $('#kelurahan').html(htmlKelurahan);
             }

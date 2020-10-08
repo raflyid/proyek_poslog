@@ -47,7 +47,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="all-form-element-inner">
-                                        <form action="#">
+                                        <form method="post" id="form">
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-3">
@@ -56,8 +56,8 @@
                                                     </div>
                                                     <div class="col-lg-9">
                                                         <input required placeholder="Nama Perusahaan"
-                                                            name="nama_perusahaan"
-                                                            id="nama_perusahaan" type="text" class="form-control" />
+                                                            name="nama_perusahaan" id="nama_perusahaan" type="text"
+                                                            class="form-control" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -96,7 +96,6 @@
                                                         <div class="form-select-list">
                                                             <select required id="kota"
                                                                 class="form-control custom-select-value" name="kota">
-                                                                <option>--- Pilih Kabupaten/Kota ---</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -111,7 +110,6 @@
                                                             <select required id="kecamatan"
                                                                 class="form-control custom-select-value"
                                                                 name="kecamatan">
-                                                                <option>--- Pilih Kecamatan ---</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -126,7 +124,6 @@
                                                             <select required id="kelurahan"
                                                                 class="form-control custom-select-value"
                                                                 name="kelurahan">
-                                                                <option>--- Pilih Kelurahan ---</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -160,8 +157,19 @@
                                                     <div class="col-lg-3">
                                                     </div>
                                                     <div class="col-lg-9">
-                                                        <input id="fax" name="fax" placeholder="Fax"
-                                                            type="text" class="form-control" />
+                                                        <input id="fax" name="fax" placeholder="Fax" type="text"
+                                                            class="form-control" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group-inner">
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <label class="login2 pull-right pull-right-pro">Email Perusahaan<span style="color: red">*</span></label>
+                                                    </div>
+                                                    <div class="col-lg-9">
+                                                        <input id="vendor_email" name="vendor_email" required
+                                                            placeholder="Email Perusahaan" type="email" class="form-control" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -180,10 +188,27 @@
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-3">
+                                                        <label class="login2 pull-right pull-right-pro"></label>
+                                                    </div>
+                                                    <div class="col-lg-9">
+                                                        <div class="form-select-list">
+                                                            <select required id="pic_gender"
+                                                                class="form-control custom-select-value" name="pic_gender">
+                                                                <option value="">--- Pilih Jenis Kelamin ---</option>
+                                                                <option value="1">Laki-Laki</option>
+                                                                <option value="2">Perempuan</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group-inner">
+                                                <div class="row">
+                                                    <div class="col-lg-3">
                                                     </div>
                                                     <div class="col-lg-9">
                                                         <input id="pic_nohp" name="pic_nohp" required
-                                                            placeholder="No HP (WA)" type="text" class="form-control" />
+                                                            placeholder="No HP (WA) PIC" type="text" class="form-control" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -192,18 +217,20 @@
                                                     <div class="col-lg-3">
                                                     </div>
                                                     <div class="col-lg-9">
-                                                        <input id="email" name="email" required placeholder="Email" type="email" class="form-control" />
+                                                        <input id="pic_email" name="pic_email" required
+                                                            placeholder="Email PIC" type="email" class="form-control" />
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-3">
-                                                        <label class="login2 pull-right pull-right-pro">Website
+                                                        <label class="login2 pull-right pull-right-pro">Website Perusahaan
                                                             (Optional)</label>
                                                     </div>
                                                     <div class="col-lg-9">
-                                                        <input placeholder="Website (Optional)" type="text"
+                                                        <input id="website" name="website"
+                                                            placeholder="Website Perusahaan (Optional)" type="text"
                                                             class="form-control" />
                                                     </div>
                                                 </div>
@@ -216,7 +243,8 @@
                                                     </div>
                                                     <div class="col-lg-9">
                                                         <div class="form-select-list">
-                                                            <select id="business_field" class="form-control custom-select-value"
+                                                            <select id="business_field"
+                                                                class="form-control custom-select-value"
                                                                 name="business_field">
                                                             </select>
                                                         </div>
@@ -229,7 +257,8 @@
                                                     </div>
                                                     <div class="col-lg-9">
                                                         <div class="form-select-list">
-                                                            <select id="category_business_field" class="form-control custom-select-value"
+                                                            <select id="category_business_field"
+                                                                class="form-control custom-select-value"
                                                                 name="category_business_field">
                                                             </select>
                                                         </div>
@@ -239,11 +268,13 @@
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-3">
-                                                        <label class="login2 pull-right pull-right-pro">Klasifikasi<span style="color: red">*</span></label>
+                                                        <label class="login2 pull-right pull-right-pro">Klasifikasi<span
+                                                                style="color: red">*</span></label>
                                                     </div>
                                                     <div class="col-lg-9">
                                                         <div class="form-select-list">
-                                                            <select id="classification" class="form-control custom-select-value"
+                                                            <select id="classification"
+                                                                class="form-control custom-select-value"
                                                                 name="classification">
                                                             </select>
                                                         </div>
@@ -257,20 +288,22 @@
                                                             Perusahaan<span style="color: red">*</span></label>
                                                     </div>
                                                     <div class="col-lg-9">
-                                                        <textarea id="deskripsi_umum" name="deskripsi_umum" placeholder="Tuliskan Deskripsi Umum Perusahaan"
-                                                            type="text" class="form-control"></textarea>
+                                                        <textarea id="deskripsi_umum" name="deskripsi_umum"
+                                                            placeholder="Tuliskan Deskripsi Umum Perusahaan" type="text"
+                                                            class="form-control"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="form-group-inner">
                                                 <div class="login-btn-inner">
                                                     <div class="row">
                                                         <div class="col-lg-3"></div>
                                                         <div class="col-lg-9">
                                                             <div class="login-horizental cancel-wp pull-left">
-                                                                <button class="btn btn-sm btn-primary login-submit-cs"
-                                                                    type="submit">Submit</button>
+                                                                <input name="submit" id="submit"
+                                                                    class="btn btn-sm btn-primary login-submit-cs"
+                                                                    type="submit" text="Submit" />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -289,3 +322,17 @@
 </div>
 <!-- Basic Form End-->
 
+<?php if ($this->session->flashdata('success')): ?>
+<script>
+Swal.fire({
+    title: "Success!",
+    text: "Data saved successfully!",
+    type: "success",
+    confirmButtonText: "OK"
+}).then((result) => {
+    if (result.value) {
+        window.location.href = "<?php echo base_url() ?>index.php/vendor/registration";
+    }
+});
+</script>
+<?php endif; ?>
