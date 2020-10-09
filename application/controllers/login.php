@@ -35,21 +35,21 @@ class login extends CI_Controller
 
 			if($cek_level == "1")
 			{
-				redirect(base_url('index.php/vendor/dashboard'));
+				redirect(base_url('vendor/dashboard'));
 			}
 			else if($cek_level == "2")
 			{
-				redirect(base_url('index.php/divpengadaan/dashboard'));
+				redirect(base_url('divpengadaan/dashboard'));
 			}
 			else if($cek_level == "3")
 			{
-				redirect(base_url('index.php/bod/dashboard'));
+				redirect(base_url('bod/dashboard'));
 			}
 		}
 		else
 		{
 			$this->session->set_flashdata('error','Action Not Completed');
-			redirect(base_url('index.php/login'));
+			redirect(base_url('login'));
 		}
 
 	}
@@ -57,7 +57,7 @@ class login extends CI_Controller
 	function logout()
 	{
 		$this->session->sess_destroy();
-		redirect(base_url('index.php/login'));
+		redirect(base_url('login'));
 	}
 
 }
